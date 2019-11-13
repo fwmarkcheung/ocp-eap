@@ -9,7 +9,10 @@ rc=$?
 if [ $rc -eq 0 ]; then
     echo "After successful assembling"
     echo "Copy the ear to the deployments folder"
-    cp /tmp/src/ear/target/*.ear $JBOSS_HOME/standalone/deployments
+
+echo "JBoss Home = $JBOSS_HOME" 
+#    cp /tmp/src/ear/target/*.ear $JBOSS_HOME/standalone/deployments
+ cp /tmp/src/ear/target/*.ear /opt/eap/standalone/deployments
 else
     echo "After failed assembling"
 fi
