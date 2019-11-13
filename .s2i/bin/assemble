@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Running customized assembling"
+
+/usr/local/s2i/assemble
+
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "After successful assembling"
+    echo "Copy the ear to the deployments folder"
+    cp /tmp/src/ear/target/*.ear $JBOSS_HOME/standalone/deployments
+else
+    echo "After failed assembling"
+fi
+
+exit $rc

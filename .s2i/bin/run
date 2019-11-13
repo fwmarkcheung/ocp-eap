@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo 'Using customized s2i run script'
+
+exec $JBOSS_HOME/bin/standalone.sh -P $JBOSS_HOME/standalone/configuration/runtime.properties 
