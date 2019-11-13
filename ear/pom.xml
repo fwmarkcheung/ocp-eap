@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jboss</groupId>
+    <artifactId>resourceloadingEx</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>ear</artifactId>
+  <packaging>ear</packaging>
+
+  <name>ear assembly</name>
+
+  <dependencies>
+  
+  <!--  
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>ejbs</artifactId>
+      <type>ejb</type>
+    </dependency>
+    
+    -->
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>servlet</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>primary-source</artifactId>
+    </dependency>
+   
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+        
+         <defaultLibBundleDir>lib</defaultLibBundleDir>
+         
+        <!--  Need to configure explicitly to include the primary-source as a java module in the generated application.xml 
+        <modules>
+            <jarModule>
+             <groupId>org.jboss</groupId>
+      <artifactId>primary-source</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml> 
+            </jarModule>
+          </modules>
+          
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+          -->
+        </configuration>
+      </plugin>
+    </plugins>
+
+        
+        <finalName>${parent.artifactId}</finalName>
+
+    
+  </build>
+</project>
